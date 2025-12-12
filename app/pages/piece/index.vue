@@ -13,7 +13,7 @@ const pieces = computed(() => {
     const base = filteredPieces.value ?? allPieces.value ?? [];
     return base.map(item => ({
         // composer: item.composer,
-        key: item.key,
+        key: item.key ? t(`keyNames.${item.key}`) : null,
         // largerWorkTitle: item.largerWorkTitle,
         majorMinor: item.majorMinor,
         meter: item.meter,
@@ -23,15 +23,15 @@ const pieces = computed(() => {
         op: item.op,
         slug: item.slug,
         opnr: `${item.op} / ${item.nr}`,
-        mvAndDesignation: `${item.mv}. ${item.movementDesignation}`,
         title: item.body.title,
     }));
 });
 
 const columns = [
     { accessorKey: 'audio', header: '' },
+    { accessorKey: 'id', header: t('id') },
     { accessorKey: 'opnr', header: t('opNr') },
-    { accessorKey: 'mvAndDesignation', header: t('movement') },
+    { accessorKey: 'movementDesignation', header: t('movement') },
     { accessorKey: 'title', header: t('title') },
     { accessorKey: 'key', header: t('key')  },
     { accessorKey: 'majorMinor', header: t('majorMinor') },
@@ -40,6 +40,26 @@ const columns = [
 ];
 
 const { localScoreUrlGenerator, vhvScoreUrlGenerator } = useScoreUrlGenerator();
+
+const pieceFilter = usePieceFilterOptions();
+
+function toggleMeter(meter) {
+    const index = pieceFilter.$state.meter.indexOf(meter);
+    if (index > -1) {
+        pieceFilter.$state.meter.splice(index, 1);
+    } else {
+        pieceFilter.$state.meter.push(meter);
+    }
+}
+
+function toggleTempo(tempo) {
+    const index = pieceFilter.$state.tempo.indexOf(tempo);
+    if (index > -1) {
+        pieceFilter.$state.tempo.splice(index, 1);
+    } else {
+        pieceFilter.$state.tempo.push(tempo);
+    }
+}
 </script>
 
 <template>
@@ -54,10 +74,42 @@ const { localScoreUrlGenerator, vhvScoreUrlGenerator } = useScoreUrlGenerator();
                 <template #audio-cell="{ row }">
                     <MidiPlayer :url="localScoreUrlGenerator(row.original.slug)" class="text-2xl"/>
                 </template>
+                <template #id-cell="{ row }">
+                    <NuxtLink :to="localePath({ name: 'piece-id', params: { id: row.original.slug } })">
+                        <UBadge color="neutral" variant="outline" class="font-mono w-[11ch] inline-flex items-center justify-center text-center" :label="row.original.slug" />
+                    </NuxtLink>
+                </template>
+                <template #movementDesignation-cell="{ row }">
+                    <div class="flex gap-2">
+                        <div class="shrink-0">{{ row.original.mv }}.</div>
+                        <div class="flex flex-wrap gap-2">
+                            <UBadge
+                                v-for="(omd, index) in row.original.movementDesignation"
+                                :key="index"
+                                :label="omd"
+                                :variant="pieceFilter.$state.tempo.includes(omd) ? 'solid' : 'soft'"
+                                class="cursor-pointer"
+                                @click="toggleTempo(omd)"
+                            />
+                        </div>
+                    </div>
+                </template>
                 <template #title-cell="{ row }">
                     <NuxtLink :to="localePath({ name: 'piece-id', params: { id: row.original.slug } })">
                         {{ row.original.title ?? '' }}
                     </NuxtLink>
+                </template>
+                <template #meter-cell="{ row }">
+                    <div class="flex flex-wrap gap-2">
+                        <UBadge
+                            v-for="(meter, index) in row.original.meter"
+                            :key="index"
+                            :label="meter"
+                            :variant="pieceFilter.$state.meter.includes(meter) ? 'solid' : 'soft'"
+                            class="cursor-pointer"
+                            @click="toggleMeter(meter)"
+                        />
+                    </div>
                 </template>
                 <template #actions-cell="{ row }">
                     <div class="flex gap-1 justify-end">

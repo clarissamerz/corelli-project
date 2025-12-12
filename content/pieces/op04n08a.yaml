@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: d
 largerWorkTitle: Sonata da camera
 majorMinor: minor
-meter: 3/2
-movementDesignation: Grave
+meter:
+    - 3/2
+movementDesignation:
+    - Grave
 mv: 1
 nr: 8
 op: 4

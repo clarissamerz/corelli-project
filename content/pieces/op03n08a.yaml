@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: null
 largerWorkTitle: Sonata da chiesa
 majorMinor: major
-meter: 4/4
-movementDesignation: Largo
+meter:
+    - 4/4
+movementDesignation:
+    - Largo
 mv: 1
 nr: 8
 op: 3

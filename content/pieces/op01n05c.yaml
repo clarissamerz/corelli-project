@@ -2,8 +2,23 @@ composer: Arcangelo Corelli
 key: g
 largerWorkTitle: Sonata da chiesa
 majorMinor: minor
-meter: 3/2
-movementDesignation: Adagio - Allegro
+meter:
+    - 3/2
+    - 4/4
+    - 4/4
+    - 3/2
+    - 4/4
+    - 3/2
+movementDesignation:
+    - Adagio
+    - Allegro
+    - Adagio
+    - Allegro
+    - Adagio
+    - Adagio
+    - Allegro
+    - Adagio
+    - Adagio e piano
 mv: 3
 nr: 5
 op: 1

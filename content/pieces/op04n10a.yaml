@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: G
 largerWorkTitle: Sonata da camera
 majorMinor: major
-meter: 4/4
-movementDesignation: Adagio
+meter:
+    - 4/4
+movementDesignation:
+    - Adagio
 mv: 1
 nr: 10
 op: 4

@@ -138,67 +138,67 @@ modulations:
     -
         deg: i
         endBeat: 24
-        endLine: 36
+        endLine: 35
         key: g
         pieceId: op01n05c
         startBeat: 4
-        startLine: 20
+        startLine: 19
     -
         deg: III
         endBeat: 38
-        endLine: 80
+        endLine: 79
         key: B-
         pieceId: op01n05c
         startBeat: 24
-        startLine: 36
+        startLine: 35
     -
         deg: VII
         endBeat: 58
-        endLine: 134
+        endLine: 133
         key: F
         pieceId: op01n05c
         startBeat: 38
-        startLine: 80
+        startLine: 79
     -
         deg: IV
         endBeat: 66
-        endLine: 145
+        endLine: 144
         key: C
         pieceId: op01n05c
         startBeat: 58
-        startLine: 134
+        startLine: 133
     -
         deg: III
         endBeat: 78
-        endLine: 152
+        endLine: 151
         key: B-
         pieceId: op01n05c
         startBeat: 66
-        startLine: 145
+        startLine: 144
     -
         deg: i
         endBeat: 100
-        endLine: 166
+        endLine: 165
         key: g
         pieceId: op01n05c
         startBeat: 78
-        startLine: 152
+        startLine: 151
     -
         deg: III
         endBeat: 122
-        endLine: 218
+        endLine: 217
         key: B-
         pieceId: op01n05c
         startBeat: 100
-        startLine: 166
+        startLine: 165
     -
         deg: VII
         endBeat: 132
-        endLine: 233
+        endLine: 232
         key: F
         pieceId: op01n05c
         startBeat: 122
-        startLine: 218
+        startLine: 217
     -
         deg: III
         endBeat: 146
@@ -206,7 +206,7 @@ modulations:
         key: B-
         pieceId: op01n05c
         startBeat: 132
-        startLine: 233
+        startLine: 232
     -
         deg: i
         endBeat: 4
@@ -271,6 +271,54 @@ modulations:
         pieceId: op01n06a
         startBeat: 36
         startLine: 101
+    -
+        deg: i
+        endBeat: 8
+        endLine: 28
+        key: a
+        pieceId: op01n07b
+        startBeat: 0
+        startLine: 18
+    -
+        deg: III
+        endBeat: 19
+        endLine: 43
+        key: C
+        pieceId: op01n07b
+        startBeat: 8
+        startLine: 28
+    -
+        deg: i
+        endBeat: 26
+        endLine: 53
+        key: a
+        pieceId: op01n07b
+        startBeat: 19
+        startLine: 43
+    -
+        deg: III
+        endBeat: 31
+        endLine: 62
+        key: C
+        pieceId: op01n07b
+        startBeat: 26
+        startLine: 53
+    -
+        deg: i
+        endBeat: 42
+        endLine: 77
+        key: a
+        pieceId: op01n07b
+        startBeat: 31
+        startLine: 62
+    -
+        deg: III
+        endBeat: 56
+        endLine: 12
+        key: C
+        pieceId: op01n07b
+        startBeat: 42
+        startLine: 77
     -
         deg: I
         endBeat: 20
@@ -1400,65 +1448,65 @@ modulations:
         startBeat: 0
         startLine: 18
     -
-        deg: V
-        endBeat: 33.5
-        endLine: 91
-        key: A
+        deg: IV
+        endBeat: 27.5
+        endLine: 78
+        key: G
         pieceId: op04n04d
         startBeat: 21.5
         startLine: 64
     -
+        deg: V
+        endBeat: 33.5
+        endLine: 92
+        key: A
+        pieceId: op04n04d
+        startBeat: 27.5
+        startLine: 78
+    -
         deg: I
-        endBeat: 47
-        endLine: 120
+        endBeat: 54.5
+        endLine: 138
         key: D
         pieceId: op04n04d
         startBeat: 33.5
-        startLine: 91
+        startLine: 92
     -
         deg: V
         endBeat: 93.5
-        endLine: 219
+        endLine: 220
         key: A
         pieceId: op04n04d
-        startBeat: 47
-        startLine: 120
+        startBeat: 54.5
+        startLine: 138
     -
         deg: vi
         endBeat: 111.5
-        endLine: 259
+        endLine: 260
         key: b
         pieceId: op04n04d
         startBeat: 93.5
-        startLine: 219
-    -
-        deg: II
-        endBeat: 114.5
-        endLine: 267
-        key: E
-        pieceId: op04n04d
-        startBeat: 111.5
-        startLine: 259
+        startLine: 220
     -
         deg: V
-        endBeat: 120.5
-        endLine: 281
+        endBeat: 126.5
+        endLine: 294
         key: A
         pieceId: op04n04d
-        startBeat: 114.5
-        startLine: 267
+        startBeat: 111.5
+        startLine: 260
     -
         deg: iii
         endBeat: 135.5
         endLine: 313
         key: f#
         pieceId: op04n04d
-        startBeat: 120.5
-        startLine: 281
+        startBeat: 126.5
+        startLine: 294
     -
         deg: ii
-        endBeat: 150.5
-        endLine: 347
+        endBeat: 141.5
+        endLine: 327
         key: e
         pieceId: op04n04d
         startBeat: 135.5
@@ -1469,8 +1517,8 @@ modulations:
         endLine: 20
         key: D
         pieceId: op04n04d
-        startBeat: 150.5
-        startLine: 347
+        startBeat: 141.5
+        startLine: 327
     -
         deg: i
         endBeat: 20

@@ -29,6 +29,20 @@ function parseHumdrumReferenceRecords(humdrum) {
     return output;
 }
 
+function parseHumdrumTandemInterpretation(humdrum, pattern) {
+    const lines = humdrum.split(/\r?\n/);
+    const results = [];
+
+    for (const line of lines) {
+        const match = line.match(pattern);
+        if (match) {
+            results.push(match[1]);
+        }
+    }
+
+    return results;
+}
+
 execSync(`rm -rf ${piecesYamlPath}`);
 execSync(`mkdir -p ${piecesYamlPath}`);
 
@@ -40,13 +54,13 @@ getFiles(pathToKernScores).forEach(file => {
     const referenceRecords = parseHumdrumReferenceRecords(kern);
 
     const key = kern.match(/\*([a-hA-H][\#\-]*):/)?.[1] ?? null;
-    const meter = kern.match(/\*M(\d+\/\d+)/)?.[1] ?? null;
+    const meter = parseHumdrumTandemInterpretation(kern, /\*M(\d+\/\d+)/);
     const config = Object.assign({
         slug: id,
         title: referenceRecords.OTL ?? null,
         largerWorkTitle: referenceRecords.OPR ?? null,
         // movementDesignation: (Array.isArray(referenceRecords.OMD) ? [...new Set(referenceRecords.OMD)].join(' - ') : referenceRecords.OMD) ?? null,
-        movementDesignation: (Array.isArray(referenceRecords.OMD) ? referenceRecords.OMD[0] : referenceRecords.OMD) ?? null,
+        movementDesignation: [].concat(referenceRecords.OMD || []),
         urlScan: referenceRecords['URL-scan'],
         op: parseInt(referenceRecords.OPS.replaceAll(/\D/g, '')),
         nr: parseInt(referenceRecords.ONM.replaceAll(/\D/g, '')),

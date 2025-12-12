@@ -94,3 +94,20 @@ addCadence: Kaadenz hinzufügen
 addSequence: Satzmodell hinzufügen
 createGithubIssue: Neues GitHub Issue erstellen
 downloadAnnotationsFile: Annotation-Datei herunterladen
+id: ID
+keyNames:
+    C: C-Dur
+    c: c-Moll
+    D: D-Dur
+    d: d-Moll
+    E-: Es-Dur
+    E: E-Dur
+    e: e-Moll
+    F: F-Dur
+    G: G-Dur
+    g: g-Moll
+    A: A-Dur
+    a: a-Moll
+    B-: B-Dur
+    B: H-Dur
+    b: h-Moll

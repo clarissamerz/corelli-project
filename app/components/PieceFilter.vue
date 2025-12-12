@@ -3,6 +3,8 @@ import filterOptions from '../utils/piece-filter-options.json';
 
 const emit = defineEmits(['updateFilter']);
 
+const { t } = useI18n();
+
 const pieceFilter = usePieceFilterOptions();
 
 watch(pieceFilter, () => {
@@ -23,6 +25,11 @@ const {
     opOptions,
     nrOptions,
 } = filterOptions;
+
+const localizedKeyOptions = keyOptions.map(key => ({
+    value: key,
+    label: t(`keyNames.${key}`),
+}));
 </script>
 
 <template>
@@ -74,8 +81,9 @@ const {
                     v-model="key"
                     multiple
                     class="w-full"
-                    :search-input="false"
-                    :items="keyOptions"
+                    :search-input="true"
+                    value-key="value"
+                    :items="localizedKeyOptions"
                 />
             </UFormField>
             <UFormField :label="$t('meter')" class="w-32">

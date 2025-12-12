@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: b
 largerWorkTitle: Sonata da camera
 majorMinor: minor
-meter: 3/4
-movementDesignation: Largo
+meter:
+    - 3/4
+movementDesignation:
+    - Largo
 mv: 1
 nr: 12
 op: 4

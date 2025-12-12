@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: F
 largerWorkTitle: Sonata da camera
 majorMinor: major
-meter: 3/4
-movementDesignation: Vivace
+meter:
+    - 3/4
+movementDesignation:
+    - Vivace
 mv: 4
 nr: 7
 op: 4

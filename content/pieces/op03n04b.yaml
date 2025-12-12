@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: b
 largerWorkTitle: Sonata da chiesa
 majorMinor: minor
-meter: 4/4
-movementDesignation: Vivace
+meter:
+    - 4/4
+movementDesignation:
+    - Vivace
 mv: 2
 nr: 4
 op: 3

@@ -22,7 +22,12 @@ export const usePieceFilterOptions = defineStore('piece_filter_options', {
 
 function queryBuidler(store, queryBuidler) {
     if (store.meter.length) {
-        queryBuidler.where('meter', 'IN', [...store.meter]);
+        if (store.meter.length) {
+            queryBuidler.orWhere(q => {
+                store.meter.forEach(meter => q.where('meter', 'LIKE', `%${meter}%`))
+                return q;
+            });
+        }
     }
 
     if (store.op.length) {
@@ -30,8 +35,13 @@ function queryBuidler(store, queryBuidler) {
     }
 
     if (store.tempo.length) {
-        // TODO case insensitive
-        queryBuidler.where('movementDesignation', 'IN', [...store.tempo]);
+        if (store.tempo.length) {
+            queryBuidler.orWhere(q => {
+                // TODO case insensitive
+                store.tempo.forEach(tempo => q.where('movementDesignation', 'LIKE', `%${tempo}%`))
+                return q;
+            });
+        }
     }
 
     if (store.key.length) {

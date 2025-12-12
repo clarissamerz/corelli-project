@@ -90,6 +90,58 @@ sequences:
             - Karussell
             - Synkopenkette
     -
+        endBeat: 6
+        endLine: 25
+        pieceId: op01n07b
+        startBeat: 2
+        startLine: 20
+        tags:
+            - Lamento
+    -
+        endBeat: 13
+        endLine: 35
+        pieceId: op01n07b
+        startBeat: 8
+        startLine: 28
+        tags:
+            - Fauxbourdon
+    -
+        endBeat: 25
+        endLine: 51
+        pieceId: op01n07b
+        startBeat: 16
+        startLine: 39
+        tags:
+            - Synkopenkette
+            - Romanesca
+            - special
+    -
+        endBeat: 33
+        endLine: 65
+        pieceId: op01n07b
+        startBeat: 27
+        startLine: 55
+        tags:
+            - Synkopenkette
+            - Terzfalltreppe
+    -
+        endBeat: 43
+        endLine: 78
+        pieceId: op01n07b
+        startBeat: 37
+        startLine: 70
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+    -
+        endBeat: 49
+        endLine: 87
+        pieceId: op01n07b
+        startBeat: 44
+        startLine: 80
+        tags:
+            - Fauxbourdon
+    -
         endBeat: 23
         endLine: 64
         pieceId: op03n01a
@@ -773,8 +825,8 @@ sequences:
         tags:
             - Synkopenkette aufwärts
     -
-        endBeat: 51
-        endLine: 104
+        endBeat: 49
+        endLine: 100
         pieceId: op04n04a
         startBeat: 42
         startLine: 83
@@ -841,6 +893,78 @@ sequences:
         tags:
             - 5-6-Konsekutive
             - aufsteigende Quintfälle
+    -
+        endBeat: 30
+        endLine: 85
+        pieceId: op04n04d
+        startBeat: 21
+        startLine: 64
+        tags:
+            - Monte
+    -
+        endBeat: 66
+        endLine: 162
+        pieceId: op04n04d
+        startBeat: 57
+        startLine: 144
+        tags:
+            - Fauxbourdon
+    -
+        endBeat: 78
+        endLine: 188
+        pieceId: op04n04d
+        startBeat: 69
+        startLine: 170
+        tags:
+            - Fauxbourdon
+    -
+        endBeat: 96
+        endLine: 227
+        pieceId: op04n04d
+        startBeat: 87
+        startLine: 206
+        tags:
+            - Monte
+    -
+        endBeat: 114
+        endLine: 267
+        pieceId: op04n04d
+        startBeat: 107
+        startLine: 249
+        tags:
+            - Fonte
+    -
+        endBeat: 144
+        endLine: 334
+        pieceId: op04n04d
+        startBeat: 134
+        startLine: 309
+        tags:
+            - Fonte
+    -
+        endBeat: 159
+        endLine: 366
+        pieceId: op04n04d
+        startBeat: 146
+        startLine: 337
+        tags:
+            - 5-6-Konsekutive
+    -
+        endBeat: 168
+        endLine: 384
+        pieceId: op04n04d
+        startBeat: 159
+        startLine: 366
+        tags:
+            - Fauxbourdon
+    -
+        endBeat: 180
+        endLine: 410
+        pieceId: op04n04d
+        startBeat: 171
+        startLine: 392
+        tags:
+            - Fauxbourdon
     -
         endBeat: 25
         endLine: 81

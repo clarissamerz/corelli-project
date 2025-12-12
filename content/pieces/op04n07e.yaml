@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: F
 largerWorkTitle: Sonata da camera
 majorMinor: major
-meter: 4/4
-movementDesignation: Allegro
+meter:
+    - 4/4
+movementDesignation:
+    - Allegro
 mv: 5
 nr: 7
 op: 4

@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: d
 largerWorkTitle: Sonata da chiesa
 majorMinor: minor
-meter: 3/2
-movementDesignation: Adagio
+meter:
+    - 3/2
+movementDesignation:
+    - Adagio
 mv: 4
 nr: 10
 op: 1

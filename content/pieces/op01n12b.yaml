@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: D
 largerWorkTitle: Sonata da chiesa
 majorMinor: major
-meter: 4/4
-movementDesignation: Largo e puntato
+meter:
+    - 4/4
+movementDesignation:
+    - Largo e puntato
 mv: 2
 nr: 12
 op: 1

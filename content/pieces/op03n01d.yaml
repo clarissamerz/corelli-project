@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: F
 largerWorkTitle: Sonata da chiesa
 majorMinor: major
-meter: 6/8
-movementDesignation: Allegro
+meter:
+    - 6/8
+movementDesignation:
+    - Allegro
 mv: 4
 nr: 1
 op: 3

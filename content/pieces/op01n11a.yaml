@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: d
 largerWorkTitle: Sonata da chiesa
 majorMinor: minor
-meter: 4/4
-movementDesignation: Grave
+meter:
+    - 4/4
+movementDesignation:
+    - Grave
 mv: 1
 nr: 11
 op: 1

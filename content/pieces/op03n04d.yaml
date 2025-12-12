@@ -2,8 +2,11 @@ composer: Arcangelo Corelli
 key: b
 largerWorkTitle: Sonata da chiesa
 majorMinor: minor
-meter: 2/2
-movementDesignation: Presto
+meter:
+    - 2/2
+movementDesignation:
+    - Presto
+    - Adagio
 mv: 4
 nr: 4
 op: 3

@@ -2,8 +2,10 @@ composer: Arcangelo Corelli
 key: D
 largerWorkTitle: Sonata da chiesa
 majorMinor: major
-meter: 4/4
-movementDesignation: Vivace
+meter:
+    - 4/4
+movementDesignation:
+    - Vivace
 mv: 4
 nr: 12
 op: 3

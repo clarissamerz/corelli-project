@@ -82,7 +82,7 @@ const {
     addSequence,
 } = useEditAnnotations(modulations, cadences, sequences);
 
-const editAnnotations = ref(true);
+const editAnnotations = ref(false);
 
 const highlightedSections = computed(() => {
     const currentCadences = editAnnotations.value ? editedCadences.value : cadences;

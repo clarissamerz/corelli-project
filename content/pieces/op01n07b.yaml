@@ -1,9 +1,11 @@
 composer: Arcangelo Corelli
-key: null
+key: a
 largerWorkTitle: Sonata da chiesa
-majorMinor: major
-meter: 4/4
-movementDesignation: Grave
+majorMinor: minor
+meter:
+    - 4/4
+movementDesignation:
+    - Grave
 mv: 2
 nr: 7
 op: 1
