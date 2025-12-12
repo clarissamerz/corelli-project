@@ -1,11 +1,15 @@
 <script setup>
-const { data: cadencesData } = await useAsyncData('cadences', () => queryCollection('cadences').first(), {
-    deep: false,
-});
+const { data: filteredPiecesData } = await useAsyncDataPiecesCollection();
+
+const { data: cadencesData } = await useAsyncData('cadences', () => queryCollection('cadences').all());
 
 const localePath = useLocalePath();
 
-const cadences = cadencesData.value.cadences;
+const cadences = cadencesData.value;
+
+const cadencesForPieceFilter = computed(() => {
+    return cadencesData.value.filter(c => filteredPiecesData.value ? filteredPiecesData.value.map(p => p.slug).includes(c.pieceId) : true);
+});
 
 const uniqueTags = [...new Set(cadences.flatMap(cadence => cadence.tags || []))].toSorted();
 
@@ -13,12 +17,16 @@ const uniqueDegs = [...new Set(cadences.map(cadence => cadence.deg))].toSorted()
 
 const uniqueEndBassDegs = [...new Set(cadences.map(cadence => cadence.endBassDeg))].toSorted();
 
-const { filters, filteredCadences, resetFilters } = useCadenceFilter(cadences);
+const { filters, filteredCadences, resetFilters } = useCadenceFilter(cadencesForPieceFilter);
 </script>
 
 <template>
     <UContainer>
         <Heading>{{ $t('cadences') }}</Heading>
+
+        <div class="my-4">
+            <PieceFilterModal />
+        </div>
 
         <UCard>
             <template #header>

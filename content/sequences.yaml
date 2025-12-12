@@ -1,5 +1,274 @@
 sequences:
     -
+        endBeat: 15
+        endLine: 52
+        pieceId: op01n01a
+        startBeat: 10
+        startLine: 36
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+    -
+        endBeat: 31
+        endLine: 79
+        pieceId: op01n01a
+        startBeat: 21
+        startLine: 64
+        tags:
+            - Synkopenkette
+            - unregelmässig
+    -
+        endBeat: 30
+        endLine: 78
+        pieceId: op01n01a
+        startBeat: 26
+        startLine: 71
+        tags:
+            - Terzfalltreppe
+            - special
+    -
+        endBeat: 37
+        endLine: 97
+        pieceId: op01n01a
+        startBeat: 32
+        startLine: 81
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+    -
+        endBeat: 47
+        endLine: 128
+        pieceId: op01n01a
+        startBeat: 43
+        startLine: 115
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+    -
+        endBeat: 31
+        endLine: 63
+        pieceId: op01n01c
+        startBeat: 19
+        startLine: 46
+        tags:
+            - Synkopenkette
+            - Karussell
+            - special
+    -
+        endBeat: 57
+        endLine: 103
+        pieceId: op01n01c
+        startBeat: 43
+        startLine: 83
+        tags:
+            - Synkopenkette
+            - Stimmtausch
+    -
+        endBeat: 75
+        endLine: 129
+        pieceId: op01n01c
+        startBeat: 64
+        startLine: 113
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 13
+        endLine: 47
+        pieceId: op01n06a
+        startBeat: 6
+        startLine: 27
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+    -
+        endBeat: 39
+        endLine: 105
+        pieceId: op01n06a
+        startBeat: 31
+        startLine: 92
+        tags:
+            - Karussell
+            - Synkopenkette
+    -
+        endBeat: 23
+        endLine: 64
+        pieceId: op03n01a
+        startBeat: 16
+        startLine: 45
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 20
+        endLine: 57
+        pieceId: op03n01a
+        startBeat: 16
+        startLine: 45
+        tags:
+            - Romanesca
+            - Synkopenkette
+    -
+        endBeat: 37
+        endLine: 99
+        pieceId: op03n01a
+        startBeat: 30
+        startLine: 82
+        tags:
+            - Synkopenkette aufwärts
+    -
+        endBeat: 43
+        endLine: 111
+        pieceId: op03n01a
+        startBeat: 35
+        startLine: 94
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 42
+        endLine: 109
+        pieceId: op03n01a
+        startBeat: 36
+        startLine: 97
+        tags:
+            - Karussell
+    -
+        endBeat: 59
+        endLine: 144
+        pieceId: op03n01a
+        startBeat: 53
+        startLine: 133
+        tags:
+            - Synkopen
+            - Stimmtausch
+    -
+        endBeat: 37
+        endLine: 91
+        pieceId: op03n02a
+        startBeat: 30
+        startLine: 73
+        tags:
+            - Quintfall
+    -
+        endBeat: 44
+        endLine: 108
+        pieceId: op03n02a
+        startBeat: 39
+        startLine: 95
+        tags:
+            - Terzfalltreppe
+    -
+        endBeat: 50
+        endLine: 121
+        pieceId: op03n02a
+        startBeat: 47
+        startLine: 113
+        tags:
+            - Synkopenkette aufwärts
+    -
+        endBeat: 56
+        endLine: 134
+        pieceId: op03n02a
+        startBeat: 52
+        startLine: 126
+        tags:
+            - 5-6-Konsekutive
+            - Synkopen aufwärts
+            - special
+    -
+        endBeat: 16
+        endLine: 27
+        pieceId: op03n02c
+        startBeat: 0
+        startLine: 17
+        tags:
+            - Lamento
+    -
+        endBeat: 52
+        endLine: 54
+        pieceId: op03n02c
+        startBeat: 36
+        startLine: 43
+        tags:
+            - Romanesca
+            - Synkopenkette aufwärts
+    -
+        endBeat: 98
+        endLine: 89
+        pieceId: op03n02c
+        startBeat: 78
+        startLine: 74
+        tags:
+            - Karussell
+            - Special Ende
+    -
+        endBeat: 210
+        endLine: 172
+        pieceId: op03n02c
+        startBeat: 180
+        startLine: 150
+        tags:
+            - Synkopenkette aufwärts
+    -
+        endBeat: 204
+        endLine: 167
+        pieceId: op03n02c
+        startBeat: 182
+        startLine: 151
+        tags:
+            - Romanesca
+            - Synkopenkette aufwärts
+    -
+        endBeat: 210
+        endLine: 172
+        pieceId: op03n02c
+        startBeat: 198
+        startLine: 163
+        tags:
+            - Synkopenkette aufwärts
+    -
+        endBeat: 234
+        endLine: 187
+        pieceId: op03n02c
+        startBeat: 222
+        startLine: 181
+        tags:
+            - Lamento
+    -
+        endBeat: 22
+        endLine: 58
+        pieceId: op03n03a
+        startBeat: 16
+        startLine: 49
+        tags:
+            - Karussell
+            - Synkopenkette
+            - unregelmässig
+    -
+        endBeat: 27
+        endLine: 69
+        pieceId: op03n03a
+        startBeat: 17
+        startLine: 50
+        tags:
+            - Synkopenkette
+            - unregelmässig
+    -
+        endBeat: 51
+        endLine: 119
+        pieceId: op03n03a
+        startBeat: 43
+        startLine: 102
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 48
+        endLine: 113
+        pieceId: op03n03a
+        startBeat: 44
+        startLine: 104
+        tags:
+            - Romanesca
+            - Synkopenkette
+    -
         endBeat: 11
         endLine: 42
         pieceId: op04n01a
@@ -87,8 +356,8 @@ sequences:
         endBeat: 11
         endLine: 43
         pieceId: op04n01c
-        startBeat: 8
-        startLine: 36
+        startBeat: 7
+        startLine: 33
         tags:
             - Synkopenkette
             - Orgelpunkt
@@ -96,8 +365,8 @@ sequences:
         endBeat: 19
         endLine: 62
         pieceId: op04n01c
-        startBeat: 16
-        startLine: 55
+        startBeat: 15
+        startLine: 52
         tags:
             - Synkopenkette
             - Orgelpunkt
@@ -359,11 +628,107 @@ sequences:
         tags:
             - Synkopenkette aufwärts
     -
+        endBeat: 5
+        endLine: 29
+        pieceId: op04n03a
+        startBeat: 0
+        startLine: 18
+        tags:
+            - Romanesca
+    -
+        endBeat: 13
+        endLine: 48
+        pieceId: op04n03a
+        startBeat: 8
+        startLine: 36
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+            - fast
+    -
+        endBeat: 25
+        endLine: 79
+        pieceId: op04n03a
+        startBeat: 20
+        startLine: 67
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+            - fast
+    -
+        endBeat: 40
+        endLine: 109
+        pieceId: op04n03a
+        startBeat: 32
+        startLine: 90
+        tags:
+            - Romanesca
+    -
+        endBeat: 52
+        endLine: 136
+        pieceId: op04n03a
+        startBeat: 44
+        startLine: 118
+        tags:
+            - Romanesca
+            - unregelmässig
+            - Vorhalte
+    -
+        endBeat: 60
+        endLine: 158
+        pieceId: op04n03a
+        startBeat: 57
+        startLine: 150
+        tags:
+            - Monte
+    -
+        endBeat: 24
+        endLine: 74
+        pieceId: op04n03b
+        startBeat: 15
+        startLine: 54
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 59
+        endLine: 157
+        pieceId: op04n03b
+        startBeat: 45
+        startLine: 125
+        tags:
+            - Fauxbourdon
+            - Quintfall
+            - Synkopenkette
+    -
+        endBeat: 111
+        endLine: 274
+        pieceId: op04n03b
+        startBeat: 90
+        startLine: 222
+        tags:
+            - Quintfall
+    -
+        endBeat: 135
+        endLine: 329
+        pieceId: op04n03b
+        startBeat: 114
+        startLine: 282
+        tags:
+            - 5-6-Konsekutive
+    -
         endBeat: 21
         endLine: 45
         pieceId: op04n03d
         startBeat: 17
         startLine: 40
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 35
+        endLine: 64
+        pieceId: op04n03d
+        startBeat: 31
+        startLine: 59
         tags:
             - Synkopenkette
     -
@@ -382,6 +747,100 @@ sequences:
         startLine: 132
         tags:
             - Monte
+    -
+        endBeat: 33
+        endLine: 62
+        pieceId: op04n04a
+        startBeat: 24
+        startLine: 42
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 30
+        endLine: 55
+        pieceId: op04n04a
+        startBeat: 26
+        startLine: 46
+        tags:
+            - Romanesca
+            - Synkopenkette
+    -
+        endBeat: 43
+        endLine: 85
+        pieceId: op04n04a
+        startBeat: 39
+        startLine: 76
+        tags:
+            - Synkopenkette aufwärts
+    -
+        endBeat: 51
+        endLine: 104
+        pieceId: op04n04a
+        startBeat: 42
+        startLine: 83
+        tags:
+            - Synkopenkette
+    -
+        endBeat: 46
+        endLine: 93
+        pieceId: op04n04a
+        startBeat: 42
+        startLine: 83
+        tags:
+            - Romanesca
+            - Synkopenkette
+    -
+        endBeat: 62
+        endLine: 128
+        pieceId: op04n04a
+        startBeat: 59
+        startLine: 122
+        tags:
+            - Quintfall
+    -
+        endBeat: 20
+        endLine: 51
+        pieceId: op04n04b
+        startBeat: 8
+        startLine: 31
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+            - Quintfall
+    -
+        endBeat: 36
+        endLine: 73
+        pieceId: op04n04b
+        startBeat: 30
+        startLine: 65
+        tags:
+            - Lamento in Dur (Oktavregel)
+    -
+        endBeat: 47
+        endLine: 89
+        pieceId: op04n04b
+        startBeat: 38
+        startLine: 76
+        tags:
+            - Fauxbourdon
+            - Synkopenkette
+            - Quintfall
+    -
+        endBeat: 83
+        endLine: 144
+        pieceId: op04n04b
+        tags:
+            - Fonte
+            - unregelmässig
+    -
+        endBeat: 104
+        endLine: 173
+        pieceId: op04n04b
+        startBeat: 95
+        startLine: 161
+        tags:
+            - 5-6-Konsekutive
+            - aufsteigende Quintfälle
     -
         endBeat: 25
         endLine: 81
@@ -433,6 +892,48 @@ sequences:
         startLine: 229
         tags:
             - Quintfall
+    -
+        endBeat: 6
+        endLine: 25
+        pieceId: op04n05c
+        startBeat: 0
+        startLine: 18
+        tags:
+            - Lamento
+    -
+        endBeat: 23
+        endLine: 45
+        pieceId: op04n05c
+        startBeat: 17
+        startLine: 37
+        tags:
+            - Fauxbourdon
+    -
+        endBeat: 69
+        endLine: 107
+        pieceId: op04n05c
+        startBeat: 63
+        startLine: 100
+        tags:
+            - Lamento
+    -
+        endBeat: 92
+        endLine: 135
+        pieceId: op04n05c
+        startBeat: 80
+        startLine: 119
+        tags:
+            - Fauxbourdon
+            - 6-5-Konsekutive abwärts
+    -
+        endBeat: 108
+        endLine: 157
+        pieceId: op04n05c
+        startBeat: 102
+        startLine: 149
+        tags:
+            - Fauxbourdon
+            - 6-5-Konsekutive abwärts
     -
         endBeat: 6
         endLine: 27

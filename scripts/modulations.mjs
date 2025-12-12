@@ -89,9 +89,11 @@ getFiles(pathToKernScores).forEach(file => {
 1${key.toLowerCase()}`;
 
         const stdout = execSync(`echo "${degScore}" | degx | extractxx -i deg | ridx -I`).toString().trim();
-        let deg = romanize(stdout);
+        const nonDigits = stdout.replaceAll(/\d/g, '');
+        let deg = romanize(stdout.replaceAll(/\D/g, ''));
         deg = key === key.toLowerCase() ? deg.toLowerCase() : deg.toUpperCase();
-
+        deg += nonDigits;
+        
         modulations.push({
             key,
             deg,

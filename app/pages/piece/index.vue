@@ -1,5 +1,5 @@
 <script setup>
-const { data: allPieces } = await useAsyncData('pieces/search-palette', () => queryCollection('pieces').all());
+const { data: allPieces } = await useAsyncData('all-pieces', () => queryCollection('pieces').all());
 const { data: filteredPieces } = await useAsyncDataPiecesCollection();
 const { data: countPieces } = await useAsyncDataCountPieces();
 

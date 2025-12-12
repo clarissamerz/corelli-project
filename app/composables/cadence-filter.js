@@ -11,7 +11,7 @@ export function useCadenceFilter(cadences, defaults = {}) {
     });
 
     const filteredCadences = computed(() => {
-        return cadences.filter(cadence => {
+        return toValue(cadences).filter(cadence => {
             return filterDeg(cadence, filters.deg)
                 && filterEndBassDeg(cadence, filters.endBassDeg)
                 && filterTags(cadence, filters.tags)

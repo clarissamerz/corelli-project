@@ -97,6 +97,7 @@ getFiles(pathToKernScores).forEach(file => {
             fb: fb ?? 'ERROR',
             hint: hint ?? 'ERROR',
             deg: deg ?? 'ERROR',
+            timeSig: meterTsig ?? 'ERROR',
             lineNumber: lineNumber ?? 'ERROR',
             pieceId: id,
             nextDeg: null,

@@ -9,7 +9,7 @@ export function useSequenceFilter(sequences, defaults = {}) {
     });
 
     const filteredSequences = computed(() => {
-        return sequences.filter(sequence => filterTags(sequence, filters.tags));
+        return toValue(sequences).filter(sequence => filterTags(sequence, filters.tags));
     });
 
     function resetFilters() {

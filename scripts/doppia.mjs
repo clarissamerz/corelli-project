@@ -1,22 +1,30 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
-import { dirname } from 'node:path';
+import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
 // prepare the path variables for later use.
-const __dirname = dirname(fileURLToPath(import.meta.url));
-const pathToCadences = `${__dirname}/../content/cadences.yaml`;
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const pathToCadences = `${__dirname}/../content/cadences`;
 const pathToKernScores = `${__dirname}/../corelli-trio-sonatas/kern/`;
 
-// read file content of content/cadences.yaml
-const cadencesAsString = fs.readFileSync(pathToCadences, 'utf8').toString();
+// read all .yaml files in content/cadences/*.yaml
+const cadenceFiles = fs.readdirSync(pathToCadences).filter(file => file.endsWith('.yaml'));
 
-// convert cadencesAsString into a JavaScript-readable array of objects.
-const cadences = yaml.load(cadencesAsString);
+// prepate an array with all doppie objects
+let doppie = [];
 
-// filter cadences, we only want doppie
-const doppie = cadences.cadences.filter(c => c.tags.includes('doppia'));
+for (const file of cadenceFiles) {
+    // read cadence file from file system
+    const fileContent = fs.readFileSync(path.resolve(pathToCadences, file), 'utf8');
+    // convert file content (string) to a JavaScript object
+    const cadence = yaml.load(fileContent);
+    // filter cadences, we only want doppie
+    if (cadence.tags.includes('doppia')) {
+        doppie.push(cadence);
+    }
+}
 
 // prepare an object that uses unique bass strings as keys and stores the
 // cadence item IDs as values.

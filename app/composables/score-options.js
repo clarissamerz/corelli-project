@@ -13,6 +13,7 @@ function createDefaultScoreOptions() {
         hideInstrumentNames: false,
         showIntervallsatz: false,
         verovioScale: 40,
+        showHorizontalViewMode: false,
         showDcmlAnnotations: false,
     };
 }
@@ -52,6 +53,7 @@ export const useScoreOptions = defineStore('score_options', {
         countOthers(state) {
             return [
                 state.showDcmlAnnotations,
+                state.showHorizontalViewMode,
             ].filter(Boolean).length; 
         },
         countTotal() {
@@ -82,6 +84,7 @@ export const useScoreOptions = defineStore('score_options', {
         resetVerovio() {
             const defaults = createDefaultScoreOptions();
             this.verovioScale = defaults.verovioScale;
+            this.showHorizontalViewMode = defaults.showHorizontalViewMode;
         },
         resetHighlights() {
             const defaults = createDefaultScoreOptions();

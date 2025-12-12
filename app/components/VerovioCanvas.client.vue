@@ -4,7 +4,6 @@ import { VerovioCanvas, createWorkerVerovioToolkit } from 'vue-verovio-canvas';
 
 const { verovioWorker } = useVerovioWorker();
 const toolkit = ref();
-const verovioCanvas = ref();
 
 const emit = defineEmits(['scoreIsReady']);
 

@@ -9,14 +9,15 @@ useHead({
 const id = 'op04n01a';
 const { data: piece } = await useAsyncData(`pieces/${id}`, () => queryCollection('pieces').where('stem', '=', `pieces/${id}`).first());
 const { data: pieces } = await useAsyncData(`pieces`, () => queryCollection('pieces').all());
-const { data: cadencesData } = await useAsyncData(`cadences`, () => queryCollection('cadences').first());
+const { data: cadencesData } = await useAsyncData(`cadences`, () => queryCollection('cadences').all());
+const { data: demoPieceCadencesData } = await useAsyncData(`cadences/piece/${id}`, () => queryCollection('cadences').where('pieceId', '=', id).all());
 const { data: sequencesData } = await useAsyncData(`sequences`, () => queryCollection('sequences').first());
 const { data: modulationsData } = await useAsyncData(`modulations`, () => queryCollection('modulations').first());
 const { data: reviewsData } = await useAsyncData(`reviews`, () => queryCollection('reviews').first());
 
-const cadences = cadencesData.value.cadences.filter(c => c.pieceId === id);
-const sequences = sequencesData.value.sequences.filter(s => s.pieceId === id);
-const modulations = modulationsData.value.modulations.filter(m => m.pieceId === id);
+const demoPieceCadences = demoPieceCadencesData.value;
+const demoPieceSequences = sequencesData.value.sequences.filter(s => s.pieceId === id);
+const demoPieceModulations = modulationsData.value.modulations.filter(m => m.pieceId === id);
 
 const scoreOptions = useScoreOptions();
 useScoreKeyboardShortcuts();
@@ -81,7 +82,7 @@ const modulationCount = computed(() => {
 
 const cadenceCount = computed(() => {
     if (!pieces.value || !cadencesData.value) return 0;
-    const cads = cadencesData.value.cadences.filter(item => filterPiecesByOp(item, 'pieceId'));
+    const cads = cadencesData.value.filter(item => filterPiecesByOp(item, 'pieceId'));
     const piecesWithCadences = new Set(cads.map(c => c.pieceId));
     return pieces.value.filter(p => piecesWithCadences.has(p.slug)).length;
 });
@@ -303,7 +304,7 @@ const reviewsCount = computed(() => {
                     }"
                     :sections="[
                         {
-                            items: scoreOptions.showCadences ? cadences.map(c => ({
+                            items: scoreOptions.showCadences ? demoPieceCadences.map(c => ({
                                 startLine: c.startLine,
                                 endLine: c.endLine,
                                 label: c.tags?.join(', '),
@@ -311,7 +312,7 @@ const reviewsCount = computed(() => {
                         },
                         {
                             color: 'rgb(59 130 246 / 0.4)',
-                            items: scoreOptions.showSequences ? sequences.map(s => ({
+                            items: scoreOptions.showSequences ? demoPieceSequences.map(s => ({
                                 startLine: s.startLine,
                                 endLine: s.endLine,
                                 label: s.tags?.join(', '),
@@ -319,7 +320,7 @@ const reviewsCount = computed(() => {
                         }
                     ]"
                     :lines="scoreOptions.showModulations ? [{
-                        items: modulations.map(m => ({
+                        items: demoPieceModulations.map(m => ({
                             lineNumber: m.startLine,
                             label: {
                                 value: scoreOptions.showModulationsDegLabel ? m.deg : m.key,

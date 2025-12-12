@@ -9,6 +9,8 @@ const props = defineProps<{
     lines?: LinesProp,
     sections?: SectionsProp,
     filters?: Array<string>,
+    horizontal?: Boolean,
+    scrollToFirstSection?: Boolean,
 }>();
 
 defineOptions({ inheritAttrs: false });
@@ -26,6 +28,7 @@ watch(() => props.filters, (filters) => {
 const verovioCanvasAttrs = computed(() => {
     return Object.assign({
         pageMargin: 50,
+        viewMode: props.horizontal ? 'horizontal' : 'vertical',
         options: {
             ...props.verovioOptions,
             svgBoundingBoxes: true,
@@ -35,30 +38,89 @@ const verovioCanvasAttrs = computed(() => {
     });
 });
 
-const scoreContainer = ref();
+const scoreContainer = useTemplateRef('scoreContainer');
+const markerContainer = useTemplateRef('markerContainer');
+const wrapperElem = useTemplateRef('wrapperElem');
 const scoreKey = ref(Date.now());
 
-function mutationObserverEvent() {
-    scoreKey.value = Date.now();
+const markerContainerStyle = reactive<{
+    width: string | undefined,
+    height: string | undefined,
+}>({
+    width: undefined,
+    height: undefined,
+});
+
+const { scrollElementIntoView } = useHorizontalScroll();
+
+async function onScoreIsReady() {
+    if (!props.scrollToFirstSection) return;
+    if (!resolvedSections.value?.length) return;
+    if (!scoreContainer.value || !wrapperElem.value) return;
+
+    const first = resolvedSections.value[0]?.items[0];
+    if (!first) return
+    const selector = `g[id^="note-L${first.startLine}"]`;
+
+    await scrollElementIntoView(selector, scoreContainer.value, wrapperElem.value, true);
 }
 
-onMounted(async () => {
-    loadScore(props.pieceId, props.filters);
+function updateMarkerWidth() {
+    if (props.horizontal && scoreContainer.value && markerContainer.value) {
+        const width = scoreContainer.value.querySelector('svg')?.getAttribute('width');
+        if (width) {
+            markerContainerStyle.width = width;
+        }
+        const height = scoreContainer.value.querySelector('svg')?.getAttribute('height');
+        if (height) {
+            markerContainerStyle.height = height;
+        }
+    }
+    if (!props.horizontal) {
+        markerContainerStyle.width = undefined;
+        markerContainerStyle.height = undefined;
+    }
+}
+
+async function mutationObserverEvent() {
+    scoreKey.value = Date.now();
     await nextTick();
-    const mutationObserver = new MutationObserver(mutationObserverEvent);
+    updateMarkerWidth();
+}
+
+const mutationObserver = ref<MutationObserver | null>(null);
+
+function setupMutationObserver() {
+    if (mutationObserver.value) {
+        mutationObserver.value.disconnect();
+    }
+    mutationObserver.value = new MutationObserver(mutationObserverEvent);
     if (scoreContainer.value) {
-        mutationObserver.observe(scoreContainer.value, {
+        mutationObserver.value.observe(scoreContainer.value, {
             // attributes: true,
             childList: true,
             subtree: true,
         });
     }
+}
+
+watch(() => props.horizontal, async () => {
+    scoreKey.value = Date.now();
+    await nextTick();
+    setupMutationObserver();
+});
+
+onMounted(async () => {
+    loadScore(props.pieceId, props.filters);
+    await nextTick();
+    updateMarkerWidth();
+    setupMutationObserver(); 
 });
 </script>
 
 <template>
-    <div class="relative">
-        <div class="absolute w-full h-full top-0 left-0 overflow-hidden" ref="markerContainer" :key="scoreKey">
+    <div class="relative" :class="horizontal && 'overflow-x-auto'" ref="wrapperElem" :key="horizontal ? 'horizontal' : 'vertical'">
+        <div class="absolute h-full top-0 left-0 overflow-hidden" :class="!horizontal && 'w-full'" ref="markerContainer" :key="scoreKey" :style="markerContainerStyle">
             <template v-if="scoreContainer">
                 <template v-for="noteGroup in resolvedNotes">
                     <HighlightedNote v-for="noteId in noteGroup.items" :note-id="noteId" :color="noteGroup.color" :container="scoreContainer" />
@@ -72,7 +134,13 @@ onMounted(async () => {
             </template>
         </div>
         <div ref="scoreContainer" class="verovio-canvas-container">
-            <VerovioCanvas v-if="verovioCanvasAttrs.data" ref="verovioCanvas" v-bind="{ ...$attrs, ...verovioCanvasAttrs }" />
+            <VerovioCanvas v-if="verovioCanvasAttrs.data" ref="verovioCanvas" v-bind="{ ...$attrs, ...verovioCanvasAttrs }" @score-is-ready="onScoreIsReady" />
         </div>
     </div>
 </template>
+
+<style scoped>
+:deep(.verovio-canvas-horizontal) {
+    overflow-y: visible;
+}
+</style>

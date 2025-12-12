@@ -134,6 +134,13 @@ const groups = computed(() => {
                         scoreOptions.resetZoom();
                     },
                 },
+                {
+                    label: t('showHorizontalViewMode'),
+                    onSelect: () => (scoreOptions.showHorizontalViewMode = !scoreOptions.showHorizontalViewMode),
+                    active: scoreOptions.showHorizontalViewMode,
+                    showCheckbox: true,
+                    kbd: 'H',
+                },
             ],
         },
         {
@@ -207,7 +214,7 @@ const groups = computed(() => {
                 :groups="groups"
             >
                 <template #item-leading="{ item }">
-                    <UCheckbox v-if="['humdrum-filters', 'highlights', 'dcml'].includes(item.group)" v-model="item.active" />
+                    <UCheckbox v-if="['humdrum-filters', 'highlights', 'dcml'].includes(item.group) || item.showCheckbox" v-model="item.active" />
                 </template>
                 <template #item-trailing="{ item }">
                     <div v-if="item.cmd" class="font-mono text-[0.55rem] text-gray-500 translate-y-1">{{ item.cmd }}</div>

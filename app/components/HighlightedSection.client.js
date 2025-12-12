@@ -71,12 +71,12 @@ export default {
         const containerElem = props.container;
 
         for (let i = props.startLine; i <= props.endLine; i++) {
-            startElem = props.container?.querySelector(`g[id^="note-L${i}"]`);
+            startElem = props.container?.querySelector(`g[id^="note-L${i}F"]`);
             if (startElem) break;
         }
 
         for (let i = props.endLine; i >= props.startLine; i--) {
-            endElem = props.container?.querySelector(`g[id^="note-L${i}"]`);
+            endElem = props.container?.querySelector(`g[id^="note-L${i}F"]`);
             if (endElem) break;
         }
 

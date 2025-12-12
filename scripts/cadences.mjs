@@ -1,6 +1,6 @@
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
-import { dirname } from 'node:path';
+import { dirname, resolve as pathResolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 import { romanize } from '../app/utils/romanize.js';
@@ -10,11 +10,14 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const pathToKernScores = `${__dirname}/../corelli-trio-sonatas/kern`;
 const pathToCadenceData = `${__dirname}/../corelli-trio-sonatas/cadences.yaml`;
-const pathToCadencesYaml = `${__dirname}/../content/cadences.yaml`;
+const pathToCadences = `${__dirname}/../content/cadences`;
 
 const cadencesYaml = yaml.load(fs.readFileSync(pathToCadenceData, 'utf8').toString());
 
-const cadences = [];
+if (fs.existsSync(pathToCadences)) {
+    fs.rmSync(pathToCadences, { recursive: true, force: true });
+}
+fs.mkdirSync(pathToCadences);
 
 getFiles(pathToKernScores).forEach(file => {
     const id = getIdFromFilename(file);
@@ -145,12 +148,19 @@ getFiles(pathToKernScores).forEach(file => {
 
     });
 
-    cadences.push(...newCadences.filter(c => c.pieceId));
+    newCadences.filter(c => c.pieceId).forEach(cadence => {
+        if (cadence.startBeat > cadence.endBeat) {
+            throw new Error(`❌ ${cadence.pieceId}-${cadence.startBeat}-${cadence.endBeat} has wrong start and end annotation`);
+        }
+        const slug = `${cadence.pieceId}-${cadence.startBeat}-${cadence.endBeat}`;
+        if (['.', '+', '/'].some(v => slug.includes(v))) {
+            throw new Error(`❌ ${cadence.pieceId}-${cadence.startBeat}-${cadence.endBeat} has a bad slug`);
+        }
+        fs.writeFileSync(pathResolve(pathToCadences, `${slug}.yaml`), yaml.dump({...cadence, slug}, {
+            indent: 4,
+            lineWidth: -1,
+            sortKeys: true,
+        }));
+    });
 
 });
-
-fs.writeFileSync(pathToCadencesYaml, yaml.dump({cadences}, {
-    indent: 4,
-    lineWidth: -1,
-    sortKeys: true,
-}));

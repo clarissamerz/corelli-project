@@ -39,6 +39,11 @@ export function useScoreKeyboardShortcuts(options = {}) {
         scoreOptions.showModulations = !scoreOptions.showModulations;
     });
 
+    onKeyStroke('h', () => {
+        if (ignoreIfInput()) return;
+        scoreOptions.showHorizontalViewMode = !scoreOptions.showHorizontalViewMode;
+    });
+
     onKeyStroke('+', () => {
         if (ignoreIfInput()) return;
         scoreOptions.zoomIn();

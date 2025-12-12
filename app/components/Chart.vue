@@ -12,7 +12,7 @@ const emit = defineEmits(['chartClick']);
 const { config } = toRefs(props);
 
 let chart = null;
-const chartElem = ref(null);
+const chartElem = useTemplateRef('chartElem');
 let chartTimeout = null;
 
 const colorizedConfig = computed(() => {
