@@ -65,6 +65,7 @@ getFiles(pathToKernScores).forEach(file => {
         let beat = tokens[indexMap.beat];
         const fb = tokens[indexMap.fb];
         const fbReduced = tokens[indexMap.fbReduced];
+        const fbOriginal = tokens[indexMap.fbOriginal];
         const hint = tokens[indexMap.hint];
         const meterBeat = tokens[indexMap.meterBeat].replace('r', '');
         const meterTsig = tokens[indexMap.meterTsig];
@@ -103,6 +104,7 @@ getFiles(pathToKernScores).forEach(file => {
             nextDeg: null,
             fbReduced: fbReduced ?? 'ERROR',
             meterWeight: meterWeight ?? 'ERROR',
+            fbOriginal: fbOriginal ?? 'ERROR',
         });
     });
  
