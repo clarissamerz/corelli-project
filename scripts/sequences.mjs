@@ -4,14 +4,18 @@ import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 import { getIdFromFilename, getFiles, parseTimepoint } from './utils.mjs';
+import {} from './syncopations.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 const pathToKernScores = `${__dirname}/../corelli-trio-sonatas/kern`;
 const pathToSequenceData = `${__dirname}/../corelli-trio-sonatas/sequences.yaml`;
 const pathToSequencesYaml = `${__dirname}/../content/sequences.yaml`;
+const pathToSyncopationsYaml = `${__dirname}/../content/syncopations.yaml`;
 
 const sequencesYaml = yaml.load(fs.readFileSync(pathToSequenceData, 'utf8').toString());
+const syncopationsYaml = yaml.load(fs.readFileSync(pathToSyncopationsYaml, 'utf8').toString());
+
 
 const sequences = [];
 
@@ -36,9 +40,11 @@ getFiles(pathToKernScores).forEach(file => {
     }));
 
     pieceSequences.forEach((pieceSequence, sequenceIndex) => {
+        // const sequenceId = pieceSequence.id
         const [startPoint, endPoint] = pieceSequence;
         const start = parseTimepoint(startPoint);
         const end = parseTimepoint(endPoint);
+        const syncopationsTags = [];
 
         const kernLines = kern.split('\n');
         let currentMeasure = null;
@@ -105,6 +111,18 @@ getFiles(pathToKernScores).forEach(file => {
             if (currentMeasure === end.measure && currentBeat === end.beat) {
                 newSequences[sequenceIndex].endLine = currentLineNumber;
                 newSequences[sequenceIndex].endBeat = currentAbsb;
+                const pieceId = `${id}_${newSequences[sequenceIndex].startBeat}-${currentAbsb}`
+                newSequences[sequenceIndex].id = pieceId;
+
+                       if (syncopationsYaml.voicing[pieceId]?.Bassbeteiligung) {
+                            syncopationsTags.push(`Synkopenkette mit Bassbeteiligung`)
+                        }
+                        if (syncopationsYaml.voicing[pieceId]?.ohneBassbeteiligung) {
+                            syncopationsTags.push(`Synkopenkette ohne Bassbeteiligung`)
+                        }
+
+console.log(syncopationsYaml.voicing)
+                newSequences[sequenceIndex].tags.push(...syncopationsTags);
             }
         }
 
