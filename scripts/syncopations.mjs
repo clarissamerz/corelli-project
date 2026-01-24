@@ -22,27 +22,27 @@ const pathToSyncopationsYaml = `${__dirname}/../content/syncopations.yaml`;
 const sequencesAsString = fs.readFileSync(pathToSequences, 'utf8').toString();
 
 const sequences = yaml.load(sequencesAsString);
-console.log(sequences)
+
 
 const Synkopenketten = sequences.sequences.filter(s => s.tags.includes('Synkopenkette'));
 
 
-// Synkopenkette mit Bassbeteiligung oder ohne Bassbeteiligung
+// Prüfe, ob Synkopenkette mit Bassbeteiligung oder ohne Bassbeteiligung?
 
 const voicingObj = {}
 
 Synkopenketten.forEach(Syncopatio => {
 
     // generate an unique id for each syncopatio
-    const id = `${Syncopatio.pieceId} ${Syncopatio.startLine}-${Syncopatio.endLine}`;
-
+    const id = `${Syncopatio.pieceId}_${Syncopatio.startBeat}-${Syncopatio.endBeat}`;
+console.log(id)
     voicingObj[id] = {
         Bassbeteiligung: false,
         ohneBassbeteiligung: false,
     };
 
 // wo gibt's im Generalbass "2"? -> Tiefste klingende Stimme ist an Synkopenkette beteiligt
-// find out if fbOutput contains "9 3" in the fb figured bass numbers
+// find out if fbOutput contains "2" in the fb figured bass numbers
 
     const fbOutput = execSync(`cat ${pathToKernScores}${Syncopatio.pieceId}.krn \
         | myank -l ${Syncopatio.startLine}-${Syncopatio.endLine} \
@@ -55,7 +55,7 @@ Synkopenketten.forEach(Syncopatio => {
         | ridxx -LGTMd \
         | ridx -I`).toString().trim();
 
-console.log(fbOutput) 
+
     const fbRows = fbOutput.split('\n').map(line => line.split('\t')).map((columns) => {
         return {
             meterBeat: columns [0],
@@ -81,6 +81,9 @@ console.log(fbOutput)
             }
         }
     }
+    console.log(ohneBassbeteiligung)
+
+    //if ohneBassbeteiligung = true prüfe, wie die Bassstimme aussieht
 
 fs.writeFileSync(pathToSyncopationsYaml, yaml.dump({
     voicing: voicingObj,
@@ -90,7 +93,7 @@ fs.writeFileSync(pathToSyncopationsYaml, yaml.dump({
     sortKeys: true,
 }));
 
-    /*
+//21.1.26: "2 Viertel Gruppen prüfen. Nach dieser Viertelgruppe kann der Bass zum nächsten Basston mit folgenden Möglichkeiten fortschreiten."
 
     // parse the basslines
     // const bassRows = bassOutput.split('\n').map(line => line.split('\t')).map((columns) => {
@@ -106,15 +109,17 @@ fs.writeFileSync(pathToSyncopationsYaml, yaml.dump({
 // Alle Sequenzen, die Synkopenketten beinhalten, nach Melodic Interval (mint) filtern.
 
 // prepare an object that uses unique bass figurations as keys and stores the sequence item IDs as values:
-/*
-{
+
+//{
  //         "+2-2":   [
  //         "op04n02b 150-154",
  //         "op04n02b 161-165",
  //         usw.
 //          ],
-}
+//}
 /*
+const uniqueFigurations = {}
+
     // Apply humdrum/humlib tools to extract the relevant information from the
     // syncopatio, such as isolating the score by the syncopatio’s startLine/endLine,
     // extracting only the bass, removing figured-bass numbers, note durations,
@@ -129,22 +134,22 @@ fs.writeFileSync(pathToSyncopationsYaml, yaml.dump({
         | mint -d \
         | ridx -I`).toString().trim();
 
-    // // parse the figuration intervals
-    // const figurationRows = figurationOutput.split('\n').map(line => line.split('\t')).map((columns) => {
-    //     return {
-    //         interval: columns [0],
-    //         duration: columns [1],
-    //         beat: columns [2],
-    //     }
-    // });
+    // parse the figuration intervals
+    const figurationRows = figurationOutput.split('\n').map(line => line.split('\t')).map((columns) => {
+        return {
+            interval: columns [0],
+            duration: columns [1],
+            beat: columns [2],
+        }
+    });
 
     // Ignore first element with the pitch, such as [GG]
-    // const figurationRowsWithoutFirstElement = figurationRows.slice(1);
+    const figurationRowsWithoutFirstElement = figurationRows.slice(1);
     
     // Example figurationRowsWithoutFirstElement:
-    [
-        { interval: 'M2', duration: '0.5', beat: '0' },
-        { interval: '-m3', duration: '0.5', beat: '0.5' },
+    //[
+        // { interval: 'M2', duration: '0.5', beat: '0' },
+        // { interval: '-m3', duration: '0.5', beat: '0.5' },
 
    // build pairs of 2 intervals to classify figuration types
     const figurationPairs = [];
