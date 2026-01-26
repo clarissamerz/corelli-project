@@ -1,130 +1,130 @@
 voicing:
     op04n01a_0-11:
-        Bassbeteiligung: true
-        ohneBassbeteiligung: false
+        bassInvolved: true
+        bassNotInvolved: false
     op04n01a_31-40:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01a_43-47:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01c_16-19:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01c_8-11:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_14-16:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_37-45:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_38-42:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_51-59:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_52-56:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_8-12:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n01d_8-21:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02a_2-11:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02a_26-33:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02a_28-31:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n02a_30-33:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02a_4-12:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02b_22-29:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02b_58-65:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n02d_85-95:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n02d_87-90:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n03d_17-21:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n05b_18-25:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n05b_83-87:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n06a_14-19:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n06a_2-8:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n06d_19-26:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n09b_13-19:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n09c_21-27:
-        Bassbeteiligung: true
-        ohneBassbeteiligung: false
+        bassInvolved: true
+        bassNotInvolved: false
     op04n09c_5-9:
-        Bassbeteiligung: true
-        ohneBassbeteiligung: false
+        bassInvolved: true
+        bassNotInvolved: false
     op04n10b_8-17:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n10b_8-23:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n10b_92-101:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n10b_92-109:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n10d_21-34:
-        Bassbeteiligung: true
-        ohneBassbeteiligung: true
+        bassInvolved: true
+        bassNotInvolved: true
     op04n10d_39-43:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n10d_7-15:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n11a_56-64:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n11c_27-36:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: true
+        bassInvolved: false
+        bassNotInvolved: true
     op04n12a_62-72:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n12a_78-83:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n12a_78-95:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
     op04n12a_79-82:
-        Bassbeteiligung: false
-        ohneBassbeteiligung: false
+        bassInvolved: false
+        bassNotInvolved: false
