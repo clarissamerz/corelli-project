@@ -20,6 +20,12 @@ const items: NavigationMenuItem[] = [
     {
         label: t('syncopations'),
         to: localePath({ name: 'faq-syncopations' }),
+        children: [
+            {
+                label: t('bassInvolvement'),
+                to: localePath({ name: 'faq-syncopations-bass-involvement' }),
+            }
+        ]
     },
     {
         label: t('ascendingSyncopations'),
