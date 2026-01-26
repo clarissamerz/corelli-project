@@ -37,8 +37,8 @@ Synkopenketten.forEach(Syncopatio => {
     const id = `${Syncopatio.pieceId}_${Syncopatio.startBeat}-${Syncopatio.endBeat}`;
 console.log(id)
     voicingObj[id] = {
-        Bassbeteiligung: false,
-        ohneBassbeteiligung: false,
+        bassInvolved: false,
+        bassNotInvolved: false,
     };
 
 // wo gibt's im Generalbass "2"? -> Tiefste klingende Stimme ist an Synkopenkette beteiligt
@@ -66,22 +66,22 @@ console.log(id)
     });
 
     // prüfe, ob Bassbeteiligung besteht oder nicht.
-    let Bassbeteiligung = false;
-    let ohneBassbeteiligung = false;
+    let bassInvolved = false;
+    let bassNotInvolved = false;
 
     for (let row of fbRows) {
         if (row.meter=== "4/4") {
             if ((row.meterBeat==="1" || row.meterBeat==="3") && row.fb.includes("2")) {
-                Bassbeteiligung = true
-                voicingObj[id].Bassbeteiligung = true;
+                bassInvolved = true
+                voicingObj[id].bassInvolved = true;
             }
             if ((row.meterBeat==="1" || row.meterBeat==="3") && (row.fbUpperVoices.includes("2")|| row.fbUpperVoices.includes("7"))) {
-                ohneBassbeteiligung = true
-                voicingObj[id].ohneBassbeteiligung = true;
+                bassNotInvolved = true
+                voicingObj[id].bassNotInvolved = true;
             }
         }
     }
-    console.log(ohneBassbeteiligung)
+    console.log(bassNotInvolved)
 
     //if ohneBassbeteiligung = true prüfe, wie die Bassstimme aussieht
 
