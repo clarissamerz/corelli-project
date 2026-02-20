@@ -23,7 +23,7 @@ const items: NavigationMenuItem[] = [
         children: [
             {
                 label: t('bassInvolvement'),
-                to: localePath({ name: 'faq-bass-involvement' }),
+                to: localePath({ name: 'faq-syncopations-bass-involvement' }),
             }
         ],
     },

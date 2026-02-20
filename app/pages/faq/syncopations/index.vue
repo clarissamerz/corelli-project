@@ -1,0 +1,104 @@
+<script setup>
+definePageMeta({
+    layout: 'faq',
+});
+
+const { data: filteredPiecesData } = await useAsyncDataPiecesCollection();
+
+const { data: sequencesData } = await useAsyncData('sequences', () => queryCollection('sequences').first());
+
+const localePath = useLocalePath();
+
+const sequences = sequencesData.value.sequences;
+
+const sequencesForPieceFilter = computed(() => {
+    return sequencesData.value.sequences.filter(c => filteredPiecesData.value ? filteredPiecesData.value.map(p => p.slug).includes(c.pieceId) : true);
+});
+
+// 23.1.26: nur Synkopenketten mit/ohne Bassbeteiligung:
+const uniqueTags = [...new Set(sequences.flatMap(sequence => sequence.tags || []))].filter(tag => tag.includes('Synkopenkette')).toSorted();
+
+const { filters, filteredSequences, resetFilters } = useSequenceFilter(sequencesForPieceFilter);
+
+const uniquePieces = computed(() => {
+    return [...new Set(filteredSequences.value.flatMap(s => s.pieceId))].toSorted();
+});
+</script>
+
+<template>
+    <UContainer>
+        <Heading>{{ $t('syncopations') }}</Heading>
+        <p>
+            Hier steht eine Unterüberschrift bzw. direkt der Text, der am Ende als Seminararbeit gelten wird. Ich beschreibe, was man auf dieser Seite finden kann.
+            Man sieht schon eine Darstellung wie auf den anderen Reitern auch. Unter "Filter" kann man hier aber nur Synkopenketten aussuchen, weil es ja eine FAQ-Page
+            zum Thema Synkopenketten ist. Mit Klick auf die opus-Zahl öffnet sich die Seite mit dem entsprechenden Stück. Schön wäre jetzt noch eine Möglichkeit "mit Bassbeteiligung" und "ohne Bassbeteiligung" auszuwählen.
+            Das könnte man über Tags machen, wenn man die Synkopenketten entsprechend taggt. Das ist bereits geschehen.
+            Da man pro Seite nur ein Template einfügen kann, kann ich eine Unterseite erstellen, auf der man sich anzeigen lassen kann, in welchen Stücken Synkopenketten mit oder ohne Bassbeteiligung vorkommen.
+            Das würde auch bedeuten, dass man diesen Text hier nur als einleitende Beschreibung verwendet und auf den Unterseiten genauere Erklärungen liefert.
+        </p>
+
+        <div class="my-4">
+            <PieceFilterModal />
+        </div>
+
+        <UCard>
+            <template #header>
+                <div class="font-medium leading-5">
+                    {{ $t('filter') }}
+                </div>
+            </template>
+            <div class="flex flex-wrap gap-2">
+                <UFormField :label="$t('tags')" class="w-64">
+                    <USelectMenu v-model="filters.tags" :items="uniqueTags" multiple class="w-full" />
+                </UFormField>
+                <UFormField label="&nbsp;" class="w-32">
+                    <UButton icon="i-lucide-funnel-x" color="warning" variant="subtle" @click="resetFilters">
+                        {{ $t('reset') }}
+                    </UButton>
+                </UFormField>
+            </div>
+        </UCard>
+
+        <div class="my-4">
+            {{ $t('sequencesFilterCountTitle', {
+                count: filteredSequences.length,
+                total: sequences.length,
+                piecesCount: uniquePieces.length,
+            }) }}
+        </div>
+
+        <div class="grid grid-cols-1 gap-4">
+            <div v-for="pieceId in uniquePieces" :key="`${pieceId}-${filteredSequences.filter(s => s.pieceId === pieceId).map(s => `${s.startBeat}${s.endBeat}`).join('-')}`">
+                <UCard >
+                    <template #header>
+                        <NuxtLink :to="localePath({ name: 'piece-id', params: { id: pieceId } })">
+                            <div class="inline font-bold">{{ pieceId }}</div>
+                            ({{ $t('countSequencesInPiece', filteredSequences.filter(s => s.pieceId === pieceId).length) }})
+                        </NuxtLink>
+                    </template>
+                    <HighlightedScore
+                        :horizontal="true"
+                        :piece-id="pieceId"
+                        :verovio-options="{
+                            scale: 35,
+                            pageMarginLeft: 42,
+                            pageMarginTop: 120,
+                        }"
+                        :sections="[
+                            {
+                                color: 'rgb(59 130 246 / 0.4)',
+                                items: filteredSequences.filter(s => s.pieceId === pieceId).map(s => ({
+                                    startLine: s.startLine,
+                                    endLine: s.endLine,
+                                    label: s.tags?.join(', '),
+                                })),
+                            }
+                        ]"
+                        :scroll-to-first-section="true"
+                    />
+                </UCard>
+            </div>
+        </div>
+
+    </UContainer>
+</template>
