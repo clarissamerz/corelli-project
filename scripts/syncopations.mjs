@@ -5,7 +5,9 @@ analyse der satzmodelle, die synkopation enthalten in bezug auf figuration (z.b.
     intervallsatz mit fb (figured bass) programm erstellen lassen (wozu dieser schritt?)
     https://doc.verovio.humdrum.org/filter/fb/ unter options kann ich mir anschauen, was es gibt
 3. figurationen in syncopatio filtern oder gesondert analysieren (typischste figuration ist blabla)
+// https://extras.humdrum.org/man/extractx/
 */
+
 
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
