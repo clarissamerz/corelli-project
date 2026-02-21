@@ -90,7 +90,7 @@ countSequencesInPiece: '{n} Sequenzen'
 showHorizontalViewMode: Paritur horizontal anzeigen
 editAnnotations: Annotationen bearbeiten
 addModulation: Modulation hinzufügen
-addCadence: Kaadenz hinzufügen
+addCadence: Kadenz hinzufügen
 addSequence: Satzmodell hinzufügen
 createGithubIssue: Neues GitHub Issue erstellen
 downloadAnnotationsFile: Annotation-Datei herunterladen
