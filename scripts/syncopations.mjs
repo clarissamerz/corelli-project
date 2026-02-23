@@ -8,46 +8,61 @@ analyse der satzmodelle, die synkopation enthalten in bezug auf figuration (z.b.
 // https://extras.humdrum.org/man/extractx/
 */
 
-
+// Nutze die Funktion "import from", um verschiedene Inhalte zu laden.
 import { execSync } from 'node:child_process';
 import fs from 'node:fs';
 import { dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import yaml from 'js-yaml';
 
+// Erstelle eine Konstante, die den absoluten Pfad des gesamten Projektes aufruft
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-const pathToKernScores = `${__dirname}/../corelli-trio-sonatas/kern/`;
+// Erstelle Konstanten, die die absoluten Pfade von spezifischen Dateien im Projekt aufrufen
 const pathToSequences = `${__dirname}/../content/sequences.yaml`;
+const pathToKernScores = `${__dirname}/../corelli-trio-sonatas/kern/`;
 const pathToSyncopationsYaml = `${__dirname}/../content/syncopations.yaml`;
 
+// Erstelle eine Konstante, die mit der Funktion .readFileSync die Datei liest und mithilfe der Funktion .toString den Inhalt der Datei als String ausgibt
 const sequencesAsString = fs.readFileSync(pathToSequences, 'utf8').toString();
 
+// Erstelle eine Konstante, die mithilfe der Funktion .load die Inhalte des oben angelegten Strings ausgibt
 const sequences = yaml.load(sequencesAsString);
 
+// Erstelle eine Konstante, die mithilfe der Funktion .filter festgelegte Tags aus der YAML-Datei (sequences.yaml) filtert (hier unter der Bedingung, dass das Wort 'Synkopenkette' beinhaltet ist)
+const Syncopatio = sequences.sequences.filter(s => s.tags.includes('Synkopenkette'));
 
-const Synkopenketten = sequences.sequences.filter(s => s.tags.includes('Synkopenkette'));
 
-
-// Prüfe, ob Synkopenkette mit Bassbeteiligung oder ohne Bassbeteiligung?
-
+// Erstelle eine Konstante, die erst später befüllt wird.
 const voicingObj = {}
 
-Synkopenketten.forEach(Syncopatio => {
+/* Mit der folgenden Schleife werden die Stellen, die Synkopenketten beinhalten, daraufhin überprüft, ob der Bass an der Synkopenkette beteiligt ist oder nicht.
+1.1 Dafür wird für jede Synkopenkette eine spezifische id erstellt, also eine Bezeichnung, die die Opuszahl, die Werknummer und die Takte angibt. Bsp: op04n12a_78-95.
+1.2 Außerdem legen wir die Konstante voicingObj darauf fest, dass sie die id der Synkopenkette nennt, und unter bassInvolved "false" ausgibt, sowie unter bassNotInvolved auch.
+2.1 Mithilfe von Humdrum werden nun die Noten generiert und analyisiert. Ziel ist es, nur die Takte darzustellen, die die Synkopenketten beinhalten. Außerdem 
+sollen die Noten so aufbereitet sein, dass man sie sinnvoll filtern kann. An dieser Stelle soll das Script ausgeben, wann die Generalbassbezifferungen eine "2" enthalten.
+Auf diese Weise lässt sich feststellen, ob der Bass beteiligt ist, oder nicht.
+2.2. Damit das Ganze besser lesbar ist, wird der String aufgeteilt und mit Kategorien benannt.
+Bsp: { meterBeat: '3', meter: '3/4', fb: '6 3', fbUpperVoices: '4' }. 
+3. Bassbeteiligung prüfen.
+*/
+Syncopatio.forEach(syncopatio => {
 
-    // generate an unique id for each syncopatio
-    const id = `${Syncopatio.pieceId}_${Syncopatio.startBeat}-${Syncopatio.endBeat}`;
-console.log(id)
+    // 1.1 Erstelle eine Konstante, die nach einem bestimmten Schema jeder Synkopenkette ihre eigene id zuweist. Dafür werden die Tags aus sequences.yaml bezogen.
+    const id = `${syncopatio.pieceId}_${syncopatio.startBeat}-${syncopatio.endBeat}`;
+    console.log(id)
+    // 1.2 Lege nun mithilfe der id die Struktur für die Konstante voicingObj an.
     voicingObj[id] = {
         bassInvolved: false,
         bassNotInvolved: false,
     };
 
-// wo gibt's im Generalbass "2"? -> Tiefste klingende Stimme ist an Synkopenkette beteiligt
-// find out if fbOutput contains "2" in the fb figured bass numbers
+    /* 2.1 Erstelle eine Konstante, die die Kern-Datei der jeweligen Synkopenkette aufruft.
+    Speichere den Inhalt mithilfe der Funktion .toString in einen String.
+    */
 
-    const fbOutput = execSync(`cat ${pathToKernScores}${Syncopatio.pieceId}.krn \
-        | myank -l ${Syncopatio.startLine}-${Syncopatio.endLine} \
+    const fbOutput = execSync(`cat ${pathToKernScores}${syncopatio.pieceId}.krn \
+        | myank -l ${syncopatio.startLine}-${syncopatio.endLine} \
         | extractxx -I '**fb' \
         | fb -cnl \
         | fb -cmn -k 2,3 -b 2 \
@@ -56,8 +71,7 @@ console.log(id)
         | extractxx -s 2,3,7,11 \
         | ridxx -LGTMd \
         | ridx -I`).toString().trim();
-
-
+    // 2.2 Erstelle nun eine Konstante, die den oben erstellten String aufteilt und den jeweiligen Unterstrings bestimmte Spalten der gefilterten Kern-Datei zuweist. (0 ist die erste Spalte)
     const fbRows = fbOutput.split('\n').map(line => line.split('\t')).map((columns) => {
         return {
             meterBeat: columns [0],
@@ -66,14 +80,17 @@ console.log(id)
             fbUpperVoices: columns [3]
         }
     });
-
-    // prüfe, ob Bassbeteiligung besteht oder nicht.
+console.log(fbRows)
+    /* 3. In dieser Schleife werden die Konstanten bassInvolved und bassNotInvolved als Booleans auf "false" festgelegt. 
+    Dann wird mit for if überprüft, was die einzelnen Tags der fbRows beinhalten. Hier werden in der ersten Schleife nur diejenigen Synkopenketten untersucht,
+    die in Takten mit der Taktart 4/4 vorkommen. Ist diese Bedingung erfüllt, wird überprüft, ob auf den Zählzeiten 1 und 3 die Generalbassbezifferung "2" vorkommt.
+    Ist dies der Fall, wird (das ist dann das gedachte "then" von "if then") der Boolean bassInvolved auf "true" gesetzt und dieses Ergebnis in das voicingObj gepusht/gespeichert. */
     let bassInvolved = false;
     let bassNotInvolved = false;
 
     for (let row of fbRows) {
         if (row.meter=== "4/4") {
-            if ((row.meterBeat==="1" || row.meterBeat==="3") && row.fb.includes("2")) {
+            if ((row.meterBeat==="1" || row.meterBeat==="3") && row.fb.includes("2")|| row.fb.includes("7")) {
                 bassInvolved = true
                 voicingObj[id].bassInvolved = true;
             }
@@ -82,10 +99,35 @@ console.log(id)
                 voicingObj[id].bassNotInvolved = true;
             }
         }
-    }
-    console.log(bassNotInvolved)
+        if (row.meter== "3/4") {
+            if ((row.meterBeat==="1") && (row.fb.includes("2")|| row.fb.includes("7"))) {
+                bassInvolved = true
+                voicingObj[id].bassInvolved = true;
+            }
+            if ((row.meterBeat==="1") && (row.fbUpperVoices.includes("2")|| row.fbUpperVoices.includes("7"))) {
+                bassNotInvolved = true
+                voicingObj[id].bassNotInvolved = true;
+            }
+        }
+        if (row.meter=== "2/2") {
+            if (row.fb.includes("2")) {
+                bassInvolved = true
+                voicingObj[id].bassInvolved = true;
+            }
+            if ((row.fbUpperVoices.includes("2")|| row.fbUpperVoices.includes("7"))) {
+                bassNotInvolved = true
+                voicingObj[id].bassNotInvolved = true;
+            }
+        }
 
-    //if ohneBassbeteiligung = true prüfe, wie die Bassstimme aussieht
+    }
+    console.log('bassNotInvolved',bassNotInvolved)
+    console.log('bassInvolved',bassInvolved)
+
+    /* In syncopations.yaml werden nun die Ergebnisse gespeichert. Wenn beide Booleans false ergeben, deutet das
+    darauf hin, dass das Stück nicht im 4/4-Takt steht, die Voraussetzung also nicht erfüllt sind, um in die Schleife zu gehen
+    Es gibt hier einen Sonderfall: op04n10d_21-34 hat bei beiden Booleans "true" stehen. Das liegt daran, dass es eine Stelle gibt,
+    an der mit der Bassstimme und der Synkopenkette in den Oberstimmen ein Sekundakkord entsteht. RIP.  */
 
 fs.writeFileSync(pathToSyncopationsYaml, yaml.dump({
     voicing: voicingObj,

@@ -114,10 +114,10 @@ getFiles(pathToKernScores).forEach(file => {
                 const pieceId = `${id}_${newSequences[sequenceIndex].startBeat}-${currentAbsb}`
                 newSequences[sequenceIndex].id = pieceId;
 
-                       if (syncopationsYaml.voicing[pieceId]?.Bassbeteiligung) {
+                       if (syncopationsYaml.voicing[pieceId]?.bassInvolved) {
                             syncopationsTags.push(`Synkopenkette mit Bassbeteiligung`)
                         }
-                        if (syncopationsYaml.voicing[pieceId]?.ohneBassbeteiligung) {
+                        if (syncopationsYaml.voicing[pieceId]?.bassNotInvolved) {
                             syncopationsTags.push(`Synkopenkette ohne Bassbeteiligung`)
                         }
 

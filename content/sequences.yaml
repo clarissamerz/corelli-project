@@ -2,10 +2,10 @@ sequences:
     -
         endBeat: 11
         endLine: 42
-        id: op04n01a_0-11
+        id: op04n01a_1-11
         pieceId: op04n01a
-        startBeat: 0
-        startLine: 18
+        startBeat: 1
+        startLine: 19
         tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
@@ -27,7 +27,16 @@ sequences:
         startLine: 84
         tags:
             - Terzfalltreppe
+    -
+        endBeat: 41
+        endLine: 109
+        id: op04n01a_31-41
+        pieceId: op04n01a
+        startBeat: 31
+        startLine: 84
+        tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 47
@@ -38,7 +47,16 @@ sequences:
         startLine: 112
         tags:
             - Karussell
+    -
+        endBeat: 49
+        endLine: 121
+        id: op04n01a_43-49
+        pieceId: op04n01a
+        startBeat: 43
+        startLine: 112
+        tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 61
@@ -147,6 +165,7 @@ sequences:
         startLine: 37
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 12
@@ -158,6 +177,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 16
@@ -169,6 +189,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 39
@@ -188,6 +209,7 @@ sequences:
         startLine: 104
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 42
@@ -199,6 +221,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 59
@@ -209,6 +232,7 @@ sequences:
         startLine: 135
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 56
@@ -220,6 +244,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 94
@@ -240,15 +265,16 @@ sequences:
         tags:
             - 5-6-Konsekutive aufwärts
     -
-        endBeat: 11
-        endLine: 42
-        id: op04n02a_2-11
+        endBeat: 13
+        endLine: 47
+        id: op04n02a_3-13
         pieceId: op04n02a
-        startBeat: 2
-        startLine: 22
+        startBeat: 3
+        startLine: 24
         tags:
             - Synkopenkette
             - Special Ende
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 12
@@ -259,17 +285,16 @@ sequences:
         startLine: 27
         tags:
             - Terzfalltreppe
-            - Synkopenkette
-            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 33
         endLine: 79
-        id: op04n02a_26-33
+        id: op04n02a_27-33
         pieceId: op04n02a
-        startBeat: 26
-        startLine: 63
+        startBeat: 27
+        startLine: 65
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 31
@@ -280,7 +305,6 @@ sequences:
         startLine: 68
         tags:
             - Terzfalltreppe
-            - Synkopenkette
     -
         endBeat: 33
         endLine: 79
@@ -290,8 +314,6 @@ sequences:
         startLine: 72
         tags:
             - Karussell
-            - Synkopenkette
-            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 45
         endLine: 111
@@ -330,6 +352,7 @@ sequences:
             - Romanesca
             - Synkopenkette
             - Zwischendominanten
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 46
@@ -399,6 +422,7 @@ sequences:
         tags:
             - Synkopenkette
             - Stimmtausch
+            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 90
         endLine: 144
@@ -409,6 +433,7 @@ sequences:
         tags:
             - Karussell
             - Synkopenkette
+            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 106
         endLine: 165
@@ -419,12 +444,17 @@ sequences:
         tags:
             - Synkopenkette aufwärts
     -
-        endBeat: 21
-        endLine: 45
-        id: op04n03d_17-21
+        endBeat: 20
+        endLine: 44
+        id: op04n03d_18-20
         pieceId: op04n03d
-        startBeat: 17
-        startLine: 40
+        startBeat: 18
+        startLine: 41
+        tags:
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
+    -
+        pieceId: op04n03d
         tags:
             - Synkopenkette
     -
@@ -455,6 +485,7 @@ sequences:
         tags:
             - Karussell
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 46
@@ -494,6 +525,7 @@ sequences:
         startLine: 213
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 94
@@ -541,6 +573,7 @@ sequences:
         tags:
             - Quintfall
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 19
         endLine: 62
@@ -550,6 +583,7 @@ sequences:
         startLine: 51
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 55
         endLine: 145
@@ -578,6 +612,7 @@ sequences:
         startLine: 63
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 45
         endLine: 123
@@ -838,6 +873,7 @@ sequences:
         startLine: 47
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 47
         endLine: 126
@@ -1034,6 +1070,7 @@ sequences:
         startLine: 52
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 17
@@ -1045,6 +1082,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 40
@@ -1083,6 +1121,7 @@ sequences:
         startLine: 366
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 101
@@ -1094,6 +1133,7 @@ sequences:
         tags:
             - Romanesca
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 119
@@ -1382,6 +1422,7 @@ sequences:
         startLine: 82
         tags:
             - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 28
@@ -1457,7 +1498,6 @@ sequences:
         startLine: 105
         tags:
             - Fauxbourdon
-            - Synkopenkette
     -
         endBeat: 95
         endLine: 150
@@ -1468,6 +1508,8 @@ sequences:
         tags:
             - Synkopenkette
             - Special
+            - Synkopenkette mit Bassbeteiligung
+            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 83
         endLine: 133
@@ -1477,7 +1519,6 @@ sequences:
         startLine: 126
         tags:
             - Fauxbourdon
-            - Synkopenkette
     -
         endBeat: 82
         endLine: 132
@@ -1487,7 +1528,6 @@ sequences:
         startLine: 128
         tags:
             - Quintfall
-            - Synkopenkette
     -
         endBeat: 93
         endLine: 147
