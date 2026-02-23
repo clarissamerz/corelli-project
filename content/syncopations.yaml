@@ -1,11 +1,11 @@
 voicing:
-    op04n01a_1-11:
+    op04n01a_0-11:
         bassInvolved: true
         bassNotInvolved: false
-    op04n01a_31-41:
+    op04n01a_31-40:
         bassInvolved: true
         bassNotInvolved: true
-    op04n01a_43-49:
+    op04n01a_43-47:
         bassInvolved: true
         bassNotInvolved: true
     op04n01c_16-19:
@@ -35,10 +35,19 @@ voicing:
     op04n01d_8-21:
         bassInvolved: true
         bassNotInvolved: true
-    op04n02a_27-33:
+    op04n02a_2-11:
         bassInvolved: true
         bassNotInvolved: true
-    op04n02a_3-13:
+    op04n02a_26-33:
+        bassInvolved: true
+        bassNotInvolved: true
+    op04n02a_28-31:
+        bassInvolved: true
+        bassNotInvolved: false
+    op04n02a_30-33:
+        bassInvolved: true
+        bassNotInvolved: true
+    op04n02a_4-12:
         bassInvolved: true
         bassNotInvolved: true
     op04n02b_22-29:
@@ -53,12 +62,12 @@ voicing:
     op04n02d_87-90:
         bassInvolved: false
         bassNotInvolved: true
-    op04n03d_18-20:
+    op04n03d_17-21:
         bassInvolved: true
         bassNotInvolved: false
-    op04n03d_undefined-undefined:
-        bassInvolved: false
-        bassNotInvolved: false
+    op04n03d_31-39:
+        bassInvolved: true
+        bassNotInvolved: true
     op04n05b_18-25:
         bassInvolved: true
         bassNotInvolved: true
@@ -110,6 +119,15 @@ voicing:
     op04n11c_27-36:
         bassInvolved: true
         bassNotInvolved: true
+    op04n12a_62-72:
+        bassInvolved: false
+        bassNotInvolved: false
+    op04n12a_78-83:
+        bassInvolved: true
+        bassNotInvolved: false
     op04n12a_78-95:
         bassInvolved: true
         bassNotInvolved: true
+    op04n12a_79-82:
+        bassInvolved: true
+        bassNotInvolved: false

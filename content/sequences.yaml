@@ -2,10 +2,10 @@ sequences:
     -
         endBeat: 11
         endLine: 42
-        id: op04n01a_1-11
+        id: op04n01a_0-11
         pieceId: op04n01a
-        startBeat: 1
-        startLine: 19
+        startBeat: 0
+        startLine: 18
         tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
@@ -27,14 +27,6 @@ sequences:
         startLine: 84
         tags:
             - Terzfalltreppe
-    -
-        endBeat: 41
-        endLine: 109
-        id: op04n01a_31-41
-        pieceId: op04n01a
-        startBeat: 31
-        startLine: 84
-        tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
@@ -47,14 +39,6 @@ sequences:
         startLine: 112
         tags:
             - Karussell
-    -
-        endBeat: 49
-        endLine: 121
-        id: op04n01a_43-49
-        pieceId: op04n01a
-        startBeat: 43
-        startLine: 112
-        tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
             - Synkopenkette ohne Bassbeteiligung
@@ -265,12 +249,12 @@ sequences:
         tags:
             - 5-6-Konsekutive aufwärts
     -
-        endBeat: 13
-        endLine: 47
-        id: op04n02a_3-13
+        endBeat: 11
+        endLine: 42
+        id: op04n02a_2-11
         pieceId: op04n02a
-        startBeat: 3
-        startLine: 24
+        startBeat: 2
+        startLine: 22
         tags:
             - Synkopenkette
             - Special Ende
@@ -285,13 +269,16 @@ sequences:
         startLine: 27
         tags:
             - Terzfalltreppe
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
+            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 33
         endLine: 79
-        id: op04n02a_27-33
+        id: op04n02a_26-33
         pieceId: op04n02a
-        startBeat: 27
-        startLine: 65
+        startBeat: 26
+        startLine: 63
         tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
@@ -305,6 +292,8 @@ sequences:
         startLine: 68
         tags:
             - Terzfalltreppe
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 33
         endLine: 79
@@ -314,6 +303,9 @@ sequences:
         startLine: 72
         tags:
             - Karussell
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
+            - Synkopenkette ohne Bassbeteiligung
     -
         endBeat: 45
         endLine: 111
@@ -444,17 +436,22 @@ sequences:
         tags:
             - Synkopenkette aufwärts
     -
-        endBeat: 20
-        endLine: 44
-        id: op04n03d_18-20
+        endBeat: 21
+        endLine: 45
+        id: op04n03d_17-21
         pieceId: op04n03d
-        startBeat: 18
-        startLine: 41
+        startBeat: 17
+        startLine: 40
         tags:
             - Synkopenkette
             - Synkopenkette mit Bassbeteiligung
     -
+        endBeat: 39
+        endLine: 69
+        id: op04n03d_31-39
         pieceId: op04n03d
+        startBeat: 31
+        startLine: 59
         tags:
             - Synkopenkette
     -
@@ -1498,6 +1495,7 @@ sequences:
         startLine: 105
         tags:
             - Fauxbourdon
+            - Synkopenkette
     -
         endBeat: 95
         endLine: 150
@@ -1519,6 +1517,8 @@ sequences:
         startLine: 126
         tags:
             - Fauxbourdon
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 82
         endLine: 132
@@ -1528,6 +1528,8 @@ sequences:
         startLine: 128
         tags:
             - Quintfall
+            - Synkopenkette
+            - Synkopenkette mit Bassbeteiligung
     -
         endBeat: 93
         endLine: 147
